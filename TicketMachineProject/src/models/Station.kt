@@ -8,14 +8,13 @@ data class Station(
 ) {
 
     fun getPrice(type: TicketType): Double {
-        return if (type == TicketType.SINGLE) singlePrice else returnPrice
+        return when (type) {
+            TicketType.SINGLE -> singlePrice
+            TicketType.RETURN -> returnPrice
+        }
     }
 
-    fun increaseSales(count: Int = 1) {
+    fun increaseSales(count: Int) {
         salesCount += count
-    }
-
-    override fun toString(): String {
-        return "$name | Single £$singlePrice | Return £$returnPrice | Sales $salesCount"
     }
 }

@@ -1,3 +1,5 @@
+package models
+
 data class Ticket(
     val origin: String,
     val destination: Station,
@@ -5,14 +7,14 @@ data class Ticket(
     val price: Double
 ) {
     fun formatted(): String {
-        // Format price with two decimals
-        val priceStr = String.format("%.2f", price)
+        val priceStr = "%.2f".format(price)
+
         return """
             ***
             [$origin]
             to
             [${destination.name}]
-            Price: $priceStr [${type}]
+            Price: £$priceStr [${type}]
             ***
         """.trimIndent()
     }

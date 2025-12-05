@@ -1,4 +1,7 @@
+package utils
+
 object ConsoleHelper {
+
     fun readLineTrimmed(prompt: String): String {
         print(prompt)
         return readLine()?.trim() ?: ""
